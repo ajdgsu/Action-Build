@@ -92,6 +92,7 @@ jobs:
           touch ~/.gitignore_global
           git config --global core.excludesfile ~/.gitignore_global
           echo ".git" >> ~/.gitignore_global
+          echo ".repo" >> ~/.gitignore_global
           git add -A
           git commit -m "Force remove -dirty suffix from kernel version"
 
