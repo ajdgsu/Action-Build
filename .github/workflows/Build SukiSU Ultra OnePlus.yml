@@ -240,7 +240,7 @@ jobs:
         if: ${{ github.event.inputs.CPU == 'sm8650' || github.event.inputs.CPU == 'sm8750' }} 
         run: |
           cd kernel_workspace
-          ./kernel_platform/build_with_bazel.py -t ${{ github.event.inputs.CPUD }} gki
+          ./kernel_platform/build_with_bazel.py -t ${{ github.event.inputs.CPUD }} perf
           
       - name: Fallback build kernel
         if: ${{ github.event.inputs.CPU != 'sm8650' && github.event.inputs.CPU != 'sm8750' }} 
