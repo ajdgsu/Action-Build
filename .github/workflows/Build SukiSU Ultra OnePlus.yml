@@ -154,6 +154,11 @@ jobs:
             patch -p1 -F 3 < lz4kd.patch || true
             echo "lz4_patch完成"
           fi
+          
+          curl -LO https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.6/0001-bbr3.patch
+          curl -LO https://raw.githubusercontent.com/ajdgsu/Action-Build/refs/heads/main/010-0099-fasterbbr-tsunami.patch
+          patch -p1 < 0001-bbr3.patch
+          patch -p1 < 010-0099-fasterbbr-tsunami.patch
 
       # 配置 SUSFS
       - name: Add SUSFS Configuration Settings
