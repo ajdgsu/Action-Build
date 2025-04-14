@@ -236,17 +236,17 @@ jobs:
             fi
           fi
 
-      - name: Build kernel
-        if: ${{ github.event.inputs.CPU == 'sm8650' || github.event.inputs.CPU == 'sm8750' }} 
-        run: |
-          cd kernel_workspace
-          ./kernel_platform/build_with_bazel.py -t ${{ github.event.inputs.CPUD }} perf
+      #- name: Build kernel
+      #  if: ${{ github.event.inputs.CPU == 'sm8650' || github.event.inputs.CPU == 'sm8750' }} 
+      #  run: |
+      #    cd kernel_workspace
+      #    ./kernel_platform/build_with_bazel.py -t ${{ github.event.inputs.CPUD }} perf
           
       - name: Fallback build kernel
-        if: ${{ github.event.inputs.CPU != 'sm8650' && github.event.inputs.CPU != 'sm8750' }} 
+      #  if: ${{ github.event.inputs.CPU != 'sm8650' && github.event.inputs.CPU != 'sm8750' }} 
         run: |
          cd kernel_workspace
-         LTO=thin ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} gki
+         LTO=full ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} perf
 
       - name: Make AnyKernel3
         run: |
