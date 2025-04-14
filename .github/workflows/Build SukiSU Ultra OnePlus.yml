@@ -61,8 +61,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt update && sudo apt upgrade -y
-          sudo apt install -y python3 git curl
+          sudo apt -qq update
+          sudo /bin/bash -c "$(curl -sL https://git.io/vokNn)"
+          sudo -E apt-fast -y -qq upgrade
+          sudo -E apt-fast -y -qq install python3 git curl
 
       - name: Install repo tool
         run: |
