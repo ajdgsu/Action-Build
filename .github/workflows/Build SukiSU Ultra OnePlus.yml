@@ -165,10 +165,10 @@ jobs:
             echo "lz4_patch完成"
           fi
           
-          curl -LO https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.6/0001-bbr3.patch
-          curl -LO https://raw.githubusercontent.com/ajdgsu/Action-Build/refs/heads/main/010-0099-fasterbbr-tsunami.patch
-          patch -p1 < 0001-bbr3.patch
-          patch -p1 < 010-0099-fasterbbr-tsunami.patch
+          #curl -LO https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.6/0001-bbr3.patch
+          #curl -LO https://raw.githubusercontent.com/ajdgsu/Action-Build/refs/heads/main/010-0099-fasterbbr-tsunami.patch
+          #patch -p1 < 0001-bbr3.patch
+          #patch -p1 < 010-0099-fasterbbr-tsunami.patch
 
       # 配置 SUSFS
       - name: Add SUSFS Configuration Settings
@@ -177,10 +177,10 @@ jobs:
           CONFIG_FILE=./common/arch/arm64/configs/gki_defconfig
           KERNEL_VERSION="${{ github.event.inputs.KERNEL_VERSION }}"
           
-          echo "CONFIG_TCP_CONG_ADVANCED=y" >> "$CONFIG_FILE"
-          echo "CONFIG_TCP_CONG_BBR=y" >> "$CONFIG_FILE"
-          echo "CONFIG_DEFAULT_BBR=y" >> "$CONFIG_FILE"
-          echo 'CONFIG_DEFAULT_TCP_CONG="bbr"' >> "$CONFIG_FILE"
+          #echo "CONFIG_TCP_CONG_ADVANCED=y" >> "$CONFIG_FILE"
+          #echo "CONFIG_TCP_CONG_BBR=y" >> "$CONFIG_FILE"
+          #echo "CONFIG_DEFAULT_BBR=y" >> "$CONFIG_FILE"
+          #echo 'CONFIG_DEFAULT_TCP_CONG="bbr"' >> "$CONFIG_FILE"
           
 
           # SukiSU Ultra config
