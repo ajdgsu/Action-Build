@@ -169,6 +169,8 @@ jobs:
           #curl -LO https://raw.githubusercontent.com/ajdgsu/Action-Build/refs/heads/main/010-0099-fasterbbr-tsunami.patch
           #patch -p1 < 0001-bbr3.patch
           #patch -p1 < 010-0099-fasterbbr-tsunami.patch
+          curl -LO https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.6/sched/0001-bore.patch
+          patch -p1 < 0001-bore.patch
 
       # 配置 SUSFS
       - name: Add SUSFS Configuration Settings
