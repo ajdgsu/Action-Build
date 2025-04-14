@@ -62,7 +62,6 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt -qq update
-          sudo apt install -y apt-mark
           sudo apt-mark hold snapd firefox initramfs-tools
           sudo /bin/bash -c "$(curl -sL https://git.io/vokNn)"
           sudo -E apt-fast -y -qq upgrade
