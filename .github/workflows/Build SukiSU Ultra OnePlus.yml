@@ -29,7 +29,7 @@ on:
         default: 'true'
       LZ4:
         description: "是否启用lz4？"
-        required: true
+        required: false
         type: boolean
         default: 'true'
       VFS:
@@ -48,7 +48,7 @@ jobs:
         with:
           root-reserve-mb: 8192
           temp-reserve-mb: 2048
-          swap-size-mb: 8192
+          swap-size-mb: 49152
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
@@ -270,7 +270,7 @@ jobs:
       #  if: ${{ github.event.inputs.CPU != 'sm8650' && github.event.inputs.CPU != 'sm8750' }} 
         run: |
          cd kernel_workspace
-         LTO=thin ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} perf
+         LTO=full ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} perf
 
       - name: Make AnyKernel3
         run: |
