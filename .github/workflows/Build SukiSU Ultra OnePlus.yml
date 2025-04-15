@@ -132,6 +132,8 @@ jobs:
           sed -i 's/ #include <trace\/hooks\/fs.h>/+/g' 50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch
           patch -p1 < 50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch || true
           sed -i 's/KBUILD_CFLAGS += -fno-strict-aliasing/KBUILD_CFLAGS += -fno-strict-aliasing -Wno-error=constant-logical-operand -mllvm -polly -mllvm -polly-run-inliner -mllvm -polly-ast-use-context -mllvm -polly-detect-keep-going -mllvm -polly-invariant-load-hoisting -mllvm -polly-vectorizer=stripmine -mllvm -polly-loopfusion-greedy=1 -mllvm -polly-reschedule=1 -mllvm -polly-postopts=1 -mllvm -polly-num-threads=0 -mllvm -polly-omp-backend=LLVM -mllvm -polly-scheduling=dynamic -mllvm -polly-scheduling-chunksize=1 -mllvm -regalloc-enable-advisor=release -mllvm -polly-run-dce -mllvm -hot-cold-split=true/g' Makefile
+          sed -i 's/KBUILD_CFLAGS += -fno-strict-aliasing/KBUILD_CFLAGS += -fno-strict-aliasing -Wno-error=constant-logical-operand -mllvm -polly -mllvm -polly-run-inliner -mllvm -polly-ast-use-context -mllvm -polly-detect-keep-going -mllvm -polly-invariant-load-hoisting -mllvm -polly-vectorizer=stripmine -mllvm -polly-loopfusion-greedy=1 -mllvm -polly-reschedule=1 -mllvm -polly-postopts=1 -mllvm -polly-num-threads=0 -mllvm -polly-omp-backend=LLVM -mllvm -polly-scheduling=dynamic -mllvm -polly-scheduling-chunksize=1 -mllvm -regalloc-enable-advisor=release -mllvm -polly-run-dce -mllvm -hot-cold-split=true/g' ../msm-kernel/Makefile
+           
           echo "完成"
 
       - name: Apply Hide Stuff Patches
