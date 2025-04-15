@@ -272,7 +272,7 @@ jobs:
       #  if: ${{ github.event.inputs.CPU != 'sm8650' && github.event.inputs.CPU != 'sm8750' }} 
         run: |
          cd kernel_workspace
-         LTO=full ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} perf
+         LTO=thin ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} perf
 
       - name: Make AnyKernel3
         run: |
